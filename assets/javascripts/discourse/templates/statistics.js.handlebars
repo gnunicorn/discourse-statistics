@@ -1,0 +1,8 @@
+{{#if view.loading}}
+    <i class="fa fa-spin fa-spinner"></i>
+{{/if}}
+<ul>
+    {{#each view.statistics}}
+        <li>{{this.name}}:{{this.value}}</li>
+    {{/each}}
+</ul>
