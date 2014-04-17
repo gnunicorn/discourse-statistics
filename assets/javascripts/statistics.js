@@ -48,6 +48,12 @@
         tagName: "span",
         noteDraft: "",
         classNames: ['statistics-ui'],
+        classNameBindings: ["shouldBeHidden:hidden"],
+
+        // only show on list pages
+        shouldBeHidden: function(){
+            return this.get("currentControllerName").indexOf("discovery") === -1;
+        }.property("currentControllerName"),
 
         loadStatistics: function() {
             if (this.get("statistics")) return;
