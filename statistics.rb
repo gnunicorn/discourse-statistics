@@ -23,8 +23,8 @@ module ::StatisticsPlugin
     private
 
     LIST_KEY_STATISTICS = 'discourse-statistics'
-    LIST_KEY_STATISTICS_EXPIRE_LOCAL = 1.minutes.to_i
-    LIST_KEY_STATISTICS_EXPIRE_REDIS = 2.minutes.to_i
+    LIST_KEY_STATISTICS_EXPIRE_LOCAL = 10.minutes.to_i
+    LIST_KEY_STATISTICS_EXPIRE_REDIS = 20.minutes.to_i
     @mutex = Mutex.new
     @time = Time.now
     @statistics = []
