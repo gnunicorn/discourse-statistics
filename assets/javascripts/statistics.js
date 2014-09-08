@@ -22,7 +22,7 @@
             }.bind(this));
         }
     });
-
+    /* Do not add it to the header
     Discourse.HeaderView.reopen({
 
         renderStatisticsView: function () {
@@ -37,5 +37,5 @@
                 this.get('statisticsView').destroy();
             }
         }.on('willDestroyElement')
-    });
+    }); */
 })();
