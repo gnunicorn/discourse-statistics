@@ -42,7 +42,7 @@ module ::StatisticsPlugin
         @statistics << Post.count
         @statistics << Category.count
         @statistics << Upload.count
-        @statistics << View.count
+        @statistics << UserVisit.count
         redis.setex LIST_KEY_STATISTICS, LIST_KEY_STATISTICS_EXPIRE_REDIS, @statistics.to_json
       else
         @statistics = JSON.parse(redis_value)

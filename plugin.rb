@@ -27,7 +27,8 @@ after_initialize do
 end
 
 register_asset "javascripts/discourse/templates/statistics.js.handlebars"
-register_asset "javascripts/statistics.js"
+# Do not load the UI directly use sidebar UI instead
+# register_asset "javascripts/statistics.js"
 
 register_css <<CSS
 
