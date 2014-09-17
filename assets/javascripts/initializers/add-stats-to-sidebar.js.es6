@@ -14,7 +14,7 @@ export default {
 
         // only show on list pages
         shouldBeHidden: function(){
-            return this.get("currentControllerName").indexOf("discovery") === -1;
+            return this.get("currentControllerName") === undefined || this.get("currentControllerName").indexOf("discovery") === -1;
         }.property("currentControllerName"),
 
         loadStatistics: function() {
@@ -28,7 +28,7 @@ export default {
         }.on("didInsertElement")
     });
 
-    Discourse.SidebarView.reopen({stats: StatisticsView.create()});
+    Discourse.SidebarView.reopen({stats: StatisticsView});
 
     }
 };
