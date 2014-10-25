@@ -13,8 +13,9 @@ export default {
             classNameBindings: ["shouldBeHidden:hidden"],
             // only show on list pages
             shouldBeHidden: function(){
-                return (this.get("currentControllerName") || "").indexOf("discovery") === -1;
-            }.property("currentControllerName"),
+                console.log(this.get("url"));
+                return this.get("url") != "/";
+            }.property("url"),
             statistics: function() {
                 return Discourse.Site.currentProp("statistics");
             }.property()
