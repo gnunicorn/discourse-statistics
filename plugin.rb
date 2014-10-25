@@ -1,29 +1,6 @@
-load File.expand_path("../statistics.rb", __FILE__)
-
-StatisticsPlugin = StatisticsPlugin
 
 after_initialize do
-  module StatisticsPlugin
-    class Engine < ::Rails::Engine
-      engine_name "statistics_plugin"
-      isolate_namespace StatisticsPlugin
-    end
-    class StatisticsController < ActionController::Base
-      def loadStatistics
-        statistics = StatisticsPlugin::Statistics.get_statistics_json()
-        render json: statistics
-      end
-    end
-  end
-
-  StatisticsPlugin::Engine.routes.draw do
-    get '/load' => 'statistics#loadStatistics'
-  end
-
-  Discourse::Application.routes.append do
-    mount ::StatisticsPlugin::Engine, at: '/statistics'
-  end
-
+  require_dependency File.expand_path('../integrate.rb', __FILE__)
 end
 
 register_asset "javascripts/discourse/templates/statistics.js.handlebars"

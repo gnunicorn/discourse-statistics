@@ -2,7 +2,7 @@
     <i class="fa fa-spin fa-spinner"></i>
 {{/if}}
 <ul>
-    {{#each view.statistics}}
-        <li>{{this.name}}:{{this.value}}</li>
-    {{/each}}
+    <li>{{i18n topics.title}}: {{view.statistics.topics}}</li>
+    <li>{{i18n replies}}: {{view.statistics.replies}}</li>
+    <li>{{i18n users}}: {{view.statistics.users}}</li>
 </ul>

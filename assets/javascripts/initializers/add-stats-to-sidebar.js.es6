@@ -2,33 +2,25 @@
 export default {
   name: "add-stats-to-sidebar",
 
-  initialize: function() {
-    if (!Discourse.SidebarView) return; // this is the sidebar feature
+  initialize: function(container, application) {
+    if (!Discourse['external:SidebarWidgets']){
+        Discourse['external:SidebarWidgets'] = {};
+    }
 
-    var StatisticsView = Ember.View.extend({
-        templateName: "statistics",
-        tagName: "span",
-        noteDraft: "",
-        classNames: ['statistics-ui'],
-        classNameBindings: ["shouldBeHidden:hidden"],
+    Discourse['external:SidebarWidgets']["stats"] = Ember.View.extend({
+            templateName: "statistics",
+            tagName: "div",
+            classNames: ['statistics-ui'],
+            classNameBindings: ["shouldBeHidden:hidden"],
 
-        // only show on list pages
-        shouldBeHidden: function(){
-            return this.get("currentControllerName").indexOf("discovery") === -1;
-        }.property("currentControllerName"),
+            // only show on list pages
+            shouldBeHidden: function(){
+                return (this.get("currentControllerName") || "").indexOf("discovery") === -1;
+            }.property("currentControllerName"),
 
-        loadStatistics: function() {
-            if (this.get("statistics")) return;
-            this.set('loading', true);
-            Discourse.ajax("/statistics/load", {}).then(function(receivedJSON) {
-                    this.set('loading', false);
-                    this.set("statistics", receivedJSON.statistics);
-                    this.rerender();
-            }.bind(this));
-        }.on("didInsertElement")
-    });
-
-    Discourse.SidebarView.reopen({stats: StatisticsView.create()});
-
+            statistics: function() {
+                return Discourse.Site.currentProp("statistics");
+            }.property()
+        });
     }
 };
