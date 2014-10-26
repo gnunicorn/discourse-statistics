@@ -13,7 +13,6 @@ export default {
             classNameBindings: ["shouldBeHidden:hidden"],
             // only show on list pages
             shouldBeHidden: function(){
-                console.log(this.get("url"));
                 return this.get("url") != "/";
             }.property("url"),
             statistics: function() {
