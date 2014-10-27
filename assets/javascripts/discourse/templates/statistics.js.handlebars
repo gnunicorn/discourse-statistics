@@ -6,3 +6,8 @@
     <li>{{i18n replies}}: {{view.statistics.replies}}</li>
     <li>{{i18n users}}: {{view.statistics.users}}</li>
 </ul>
+
+{{#if Discourse.SiteSettings.site_teaser}}
+<hr>
+<p>{{Discourse.SiteSettings.site_teaser}}</p>
+{{/if}}

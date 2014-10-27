@@ -1,0 +1,4 @@
+uncategorized:
+  site_teaser:
+    default: ""
+    client: true
