@@ -4,20 +4,22 @@ export default {
 
   initialize: function(container, application) {
     if (!Discourse['external:SidebarWidgets']){
-        Discourse['external:SidebarWidgets'] = {};
+      Discourse['external:SidebarWidgets'] = {};
     }
     Discourse['external:SidebarWidgets']["stats"] = Ember.View.extend({
-            templateName: "statistics",
-            tagName: "div",
-            classNames: ['statistics-ui'],
-            classNameBindings: ["shouldBeHidden:hidden"],
+      templateName: "statistics",
+      tagName: "div",
+      classNames: ['statistics-ui'],
+      classNameBindings: ["shouldBeHidden:hidden"],
             // only show on list pages
             shouldBeHidden: function(){
-                return this.get("url") != "/";
+              if (this.get('url')) {
+                return this.get("url") !== "/" && this.get("url").indexOf('/latest') !== 0 && this.get("url").indexOf('/tag') !== 0;
+              }
             }.property("url"),
             statistics: function() {
-                return Discourse.Site.currentProp("statistics");
+              return Discourse.Site.currentProp("statistics");
             }.property()
-        });
-    }
+          });
+  }
 };
