@@ -1,0 +1,7 @@
+en:
+  moderator_stats:
+    subject_template: "[%{site_name}] Moderator stats"
+    text_body_template: |
+      Here is when the mods last visited:
+
+      %{stats}

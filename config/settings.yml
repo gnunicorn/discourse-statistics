@@ -2,3 +2,5 @@ uncategorized:
   site_teaser:
     default: ""
     client: true
+  report_mods_category: -1
+  report_mods_email: ""

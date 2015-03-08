@@ -1,0 +1,7 @@
+de:
+  moderator_stats:
+    subject_template: "[%{site_name}] Moderator Statistik"
+    text_body_template: |
+      Hier die aktuellen Moderatoren Statistik:
+
+      %{stats}
