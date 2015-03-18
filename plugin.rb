@@ -1,3 +1,4 @@
+load File.expand_path('../lib/statistics/engine.rb', __FILE__)
 
 after_initialize do
   require_dependency File.expand_path('../integrate.rb', __FILE__)
