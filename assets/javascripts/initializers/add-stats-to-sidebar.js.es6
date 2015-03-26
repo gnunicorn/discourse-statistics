@@ -14,7 +14,7 @@ export default {
             // only show on list pages
             shouldBeHidden: function(){
               if (this.get('url')) {
-                return this.get("url") !== "/" && this.get("url").indexOf('/latest') !== 0 && this.get("url").indexOf('/tag') !== 0;
+                return this.get("url") !== "/" && this.get("url").indexOf('/latest') !== 0 && this.get("url").indexOf('/themen') !== 0;
               }
             }.property("url"),
             statistics: function() {
