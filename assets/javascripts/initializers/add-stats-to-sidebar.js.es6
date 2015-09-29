@@ -12,6 +12,7 @@ export default {
       tagName: "div",
       classNames: ['statistics-ui'],
       classNameBindings: ["shouldBeHidden:hidden"],
+      teaser: Discourse.computed.setting('site_teaser'),
 
       // only show on list pages
       shouldBeHidden: function() {
