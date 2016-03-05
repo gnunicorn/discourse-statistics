@@ -25,7 +25,17 @@ export default {
 
       statistics: function() {
         return Discourse.Site.currentProp("statistics");
-      }.property()
+      }.property(),
+
+      actions: {
+        facebookButtonClicked() {
+          if (typeof window.ga !== 'undefined') {
+            ga('send', 'event', 'Facebook Fan Page', 'click');
+          }
+
+          window.open('http://fb.me/werweisswas', '_blank');
+        }
+      }
 
     });
   }
