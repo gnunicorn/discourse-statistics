@@ -33,7 +33,7 @@ export default {
             ga('send', 'event', 'Facebook Fan Page', 'click');
           }
 
-          window.open('http://fb.me/werweisswas', '_blank');
+          window.open('https://fb.me/werweisswas', '_blank');
         }
       }
 
